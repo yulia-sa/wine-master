@@ -9,10 +9,6 @@ WINERY_YEAR_OF_FOUNDATION = 1920
 WINE_EXCEL = 'wine.xlsx'
 
 
-def count_winery_age():
-    return datetime.datetime.now().year - WINERY_YEAR_OF_FOUNDATION
-
-
 def define_year_ending(year):
     year_str = str(year)
     if len(year_str) >= 2 and year_str[-2:] in ['11', '12', '13', '14']:
@@ -53,7 +49,7 @@ def main():
 
     template = env.get_template('template.html')
 
-    winery_age = count_winery_age()
+    winery_age = datetime.datetime.now().year - WINERY_YEAR_OF_FOUNDATION
     years_format = define_year_ending(winery_age)
     wines_data_from_excel = read_wines_excel(WINE_EXCEL)
 
