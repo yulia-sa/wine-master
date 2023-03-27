@@ -45,25 +45,30 @@ def read_wines_excel(file_name):
     return wines_list_of_dicts_by_category
 
 
-env = Environment(
-    loader=FileSystemLoader('.'),
-    autoescape=select_autoescape(['html', 'xml'])
-)
+def main():
+    env = Environment(
+        loader=FileSystemLoader('.'),
+        autoescape=select_autoescape(['html', 'xml'])
+    )
 
-template = env.get_template('template.html')
+    template = env.get_template('template.html')
 
-winery_age = count_winery_age()
-years_format = define_year_ending(winery_age)
-wines_data_from_excel = read_wines_excel(WINE_EXCEL)
+    winery_age = count_winery_age()
+    years_format = define_year_ending(winery_age)
+    wines_data_from_excel = read_wines_excel(WINE_EXCEL)
 
-rendered_page = template.render(
-    winery_age=winery_age,
-    years_format=years_format,
-    wines_by_category=wines_data_from_excel,
-)
+    rendered_page = template.render(
+        winery_age=winery_age,
+        years_format=years_format,
+        wines_by_category=wines_data_from_excel,
+    )
 
-with open('index.html', 'w', encoding="utf8") as file:
-    file.write(rendered_page)
+    with open('index.html', 'w', encoding="utf8") as file:
+        file.write(rendered_page)
 
-server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-server.serve_forever()
+    server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+
+if __name__ == '__main__':
+    main()
