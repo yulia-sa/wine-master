@@ -131,10 +131,9 @@
                     <h3 class="heading mt-3 mb-3 text-dark">{{ wine.Название }}</h3>
                     <p>
                       {% if wine.Сорт %}
-                        Сорт винограда - {{ wine.Сорт }}<br/>
-                      {% else %}
-                        <br/>
+                        Сорт винограда - {{ wine.Сорт }}
                       {% endif %}
+                        <br/>
                       <span class="price">{{ wine.Цена }} р.</span>
                     </p>
                   </div>
