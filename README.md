@@ -8,15 +8,11 @@
 2. Python3 должен быть уже установлен.
 Затем используйте `pip` (или `pip3`, если есть конфликт с Python2) для установки зависимостей:
 ```#!bash
-
-$ pip install -r requirements.txt
-
+pip install -r requirements.txt
 ```
 3. Запустите сайт командой
 ```#!bash
-
-$ python3 main.py
-
+python3 main.py
 ```
 4. Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
